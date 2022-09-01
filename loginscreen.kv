@@ -1,0 +1,383 @@
+
+
+<Screen1>:
+	name:'login'
+	ScrollView:
+		effect_cls:'ScrollEffect'
+		MDBoxLayout:
+			padding:dp(1),dp(0)
+			spacing:dp(20)
+			adaptive_height:True
+			orientation:'vertical'
+			
+			MDBoxLayout:
+				adaptive_height:True
+				orientation:'vertical'
+				size_hint_y:None
+				height:dp(150)
+				canvas:
+					Color:
+						rgb:(0,.7,.6,1)
+					RoundedRectangle:
+						size:self.size
+						pos:self.pos
+						radius:0,0,600,600
+
+				MDLabel:
+					text:'[font=Emulator]< / >\n\nC P a w a[/font]'
+					font_size:dp(20)
+					halign:'center'
+					color:.4,.4,.4,1
+					markup:True
+			MDBoxLayout:
+				orientation:'vertical'
+				spacing:20
+				adaptive_height:True
+
+				MDLabel:
+					text:'[font=molten][color=rgba(255,100,0,255)][size=25sp][color=rgba(0,100,255,255)]C[/color][/size]amp[/color][color=#b5487d]us[/color][color=rgba(0,100,255,255)][size=25sp]P[/size][color=#00ffff]awa[/color][/color][/font][size=27sp][sup]©[/sup][/size]'
+					markup:True
+					font_size:dp(20)
+					halign:'center'
+					bold:True
+				MDBoxLayout:
+					MDLabel:
+					MDSeparator:
+						size_hint_x:dp(4)
+						color:.2,.2,.7,.2
+						height:dp(2)
+					MDLabel:
+
+
+			MDLabel:
+				size_hint:1,.12
+
+			MDBoxLayout:
+				orientation:'vertical'
+				adaptive_height:True
+				halign:'center'
+				spacing:dp(11)
+				MDLabel:
+					text:'Username'
+					pos_hint:{'center_x':.6}
+				MDTextFieldRound:
+					id:username
+					icon_left:'account'
+					hint_text:'Username'
+					multiline:False
+					color_active:1,1,1,1
+					size_hint_x:.8
+					pos_hint:{'center_x':.5,'center_y':.5}
+			MDBoxLayout:
+				orientation:'vertical'
+				adaptive_height:True
+				halign:'center'
+				spacing:dp(11)
+				MDLabel:
+					text:'Password'
+					pos_hint:{'center_x':.6}
+
+				MDTextFieldRound:
+					id:password
+					icon_left:'lock'
+					color_active:1,1,1,1
+					multiline:False
+					password:True
+					hint_text:'Password'
+					size_hint_x:.8
+					pos_hint:{'center_x':.5,'center_y':.5}
+
+			MDBoxLayout:
+				adaptive_height:True
+				padding:dp(20)
+				MDBoxLayout:
+					adaptive_height:True
+					MDCheckbox:
+						id:check
+						active:False
+						color:0,.1,1,1
+						size_hint:None,None
+						size:dp(30),dp(20)
+
+					MDLabel:
+						text:'Remember me'
+						font_size:dp(11.5)
+						
+						
+				MDRoundFlatButton:
+					text:'[u]Forgot Password?[/u]'
+					text_color:1,0,0,.5
+					line_color:.1,.1,.1,.08
+					font_size:dp(13)
+					pos_hint:{'center_x':.5}
+					on_release:root.forgpopups()
+						
+					
+			MDBoxLayout:
+				orientation:'vertical'
+				adaptive_height:True
+				spacing:dp(2)
+
+				MDFillRoundFlatButton:
+					id:log					
+					text:'    Login    '
+					font_size:dp(15)
+					bold:True
+					md_bg_color:0,.7,.6,1
+					pos_hint:{'center_x':.5,'center_y':.5}
+					on_press:
+						self.md_bg_color=0,0,0,1
+						app.loginfun()
+						
+				MDTextButton:
+					id:reg
+					markup:True
+					text:'[u]Register[/u]'
+					color:0,0,1,1
+					pos_hint:{'center_x':.8,'center_y':.5}
+
+					on_release:
+						root.regpopups()
+						
+			MDBoxLayout:
+				adaptive_height:True
+				radius:[30,30,10,10]
+				orientation:'vertical'
+				pos_hint:{'center_x':.5,'center_y':.5}
+
+				MDLabel:
+					text:'Technical Support\nemail: [color=#0000ff][ref=campuspawa97@gmail.com][u]campuspawa97@gmail.com[/u][/ref][/color]'
+					halign:'center'
+					markup:True
+					size_hint_y:dp(50)
+					font_size:dp(12)
+					valign:'middle'
+				MDLabel:
+					italic:True
+					size_hint_y:dp(80)
+					text:'\n\nfrom\nMipawa ComTech\n\n'
+					font_size:dp(8)
+					halign:'center'
+
+<RegisterContent>:
+	radius:[30,30,0,0]
+	padding:dp(8),dp(8)
+	md_bg_color:1,1,1,1
+	ScrollView:
+		effect:'StiffScrollEffect'
+		padding:dp(20),dp(20)
+		MDBoxLayout:
+			orientation:'vertical'
+			adaptive_height:True
+			spacing:dp(35)
+
+			MDBoxLayout:
+				orientation:'vertical'
+				adaptive_height:True
+				spacing:dp(7)
+
+				MDLabel:
+					text:'\nEnter account details.\n'
+					adaptive_height:True
+					halign:'center'
+					color:0,0,0,1
+
+				MDTextField:	
+					id:reg_user
+					hint_text:'Username'				
+					size_hint_x:dp(.85)
+					pos_hint:{'center_x':.5}
+					line_color_normal:0,0,0,1
+					mode:'rectangle'
+					text_color:0,0,0,.95
+					current_hint_text_color:.2,0.5,0.2,1
+
+				MDTextField:
+					id:reg_email
+					hint_text:'E-mail'				
+					size_hint_x:dp(.85)
+					pos_hint:{'center_x':.5}
+					line_color_normal:0,0,0,1
+					mode:'rectangle'
+					text_color:0,0,0,.95
+					current_hint_text_color:.2,0.5,0.2,1
+
+				MDTextField:
+					id:reg_password
+					hint_text:'Password'
+					mode: "rectangle"
+					size_hint_x:dp(.85)
+					password:True
+					pos_hint:{'center_x':.5}
+					line_color_normal:0,0,0,1
+					text_color:0,0,0,.95
+					current_hint_text_color:.2,0.5,0.2,1
+
+				MDTextField:
+					id:reg_comf_password
+					hint_text:'Comfirm Password'
+					mode: "rectangle"
+					size_hint_x:dp(.85)
+					password:True
+					pos_hint:{'center_x':.5}
+					line_color_normal:0,0,0,1
+					text_color:0,0,0,.95
+					current_hint_text_color:.2,0.5,0.2,1				
+
+			MDBoxLayout:
+				adaptive_height:True
+				spacing:dp(10)
+				pos_hint:{'center_x':.5}
+				MDLabel:
+					size_hint_x:dp(.1)
+
+				MDRectangleFlatButton:
+					text:'Cancel'
+					text_color:0,0,0,1
+					line_color: 0, 0, 1, 1
+
+					on_release:
+						app.root.dismisser()
+						app.root.ids.reg.color=0,0,1,1
+
+				MDRectangleFlatButton:
+					text:'Send'
+					text_color:0,0,0,1
+					on_release:root.register() if root.ids.reg_user.text!='' and root.ids.reg_email.text!='' and root.ids.reg_password.text!='' and	root.ids.reg_comf_password.text!='' and root.ids.reg_password.text==root.ids.reg_comf_password.text 		else print('Fill all blanks and passwords must match')
+				MDLabel:
+					size_hint_x:dp(.1)
+
+<ForgotContent>:
+	radius:[30,30,0,0]
+	padding:dp(8),dp(8)
+	md_bg_color:1,1,1,1
+	ScrollView:
+		effect:'StiffScrollEffect'
+		padding:dp(20),dp(20)
+		MDBoxLayout:
+			orientation:'vertical'
+			adaptive_height:True
+			spacing:dp(35)
+
+			MDBoxLayout:
+				orientation:'vertical'
+				adaptive_height:True
+				spacing:dp(7)
+
+				MDLabel:
+					text:'\nEnter account details.\n'
+					adaptive_height:True
+					halign:'center'
+					color:0,0,0,1
+
+				MDTextField:
+					id:check_user
+					hint_text:'Username'				
+					size_hint_x:dp(.85)
+					pos_hint:{'center_x':.5}
+					line_color_normal:0,0,0,1
+					mode:'rectangle'
+					text_color:0,0,0,.95
+					current_hint_text_color:.2,0.5,0.2,1
+
+				MDTextField:
+					id:check_email
+					hint_text:'E-mail'				
+					size_hint_x:dp(.85)
+					pos_hint:{'center_x':.5}
+					line_color_normal:0,0,0,1
+					mode:'rectangle'
+					text_color:0,0,0,.95
+					current_hint_text_color:.2,0.5,0.2,1			
+
+			MDBoxLayout:
+				adaptive_height:True
+				spacing:dp(10)
+				pos_hint:{'center_x':.5}
+				MDLabel:
+					size_hint_x:dp(.1)
+
+				MDRectangleFlatButton:
+					text:'Cancel'
+					text_color:0,0,0,1
+					line_color: 0, 0, 1, 1
+
+					on_release:
+						app.root.dismisser()
+
+				MDRectangleFlatButton:
+					text:'Submit'
+					text_color:0,0,0,1
+					
+					on_press:
+						root.checking()						
+					on_release:
+						if root.match==2:app.root.dismisser(),app.root.getnewpopups()
+						
+				MDLabel:
+					size_hint_x:dp(.1)
+
+<GetNewContent>:
+	radius:[30,30,0,0]
+	padding:dp(8),dp(8)
+	md_bg_color:1,1,1,1
+	ScrollView:
+		effect:'StiffScrollEffect'
+		padding:dp(20),dp(20)
+		MDBoxLayout:
+			orientation:'vertical'
+			adaptive_height:True
+			spacing:dp(35)
+
+			MDBoxLayout:
+				orientation:'vertical'
+				adaptive_height:True
+				spacing:dp(7)
+
+				MDLabel:
+					text:'\nNew Password.\n'
+					adaptive_height:True
+					halign:'center'
+					color:0,0,0,1
+
+				MDTextField:
+					id:new_passwd
+					hint_text:'New password'				
+					size_hint_x:dp(.85)
+					pos_hint:{'center_x':.5}
+					line_color_normal:0,0,0,1
+					mode:'rectangle'
+					text_color:0,0,0,.95
+					current_hint_text_color:.2,0.5,0.2,1
+
+				MDTextField:
+					id:rep_new
+					hint_text:'Repeat new password'				
+					size_hint_x:dp(.85)
+					pos_hint:{'center_x':.5}
+					line_color_normal:0,0,0,1
+					mode:'rectangle'
+					text_color:0,0,0,.95
+					current_hint_text_color:.2,0.5,0.2,1			
+
+			MDBoxLayout:
+				adaptive_height:True
+				spacing:dp(10)
+				pos_hint:{'center_x':.5}
+				MDLabel:
+					size_hint_x:dp(.1)
+
+				MDRectangleFlatButton:
+					text:'Cancel'
+					text_color:0,0,0,1
+					line_color: 0, 0, 1, 1
+
+					on_release:
+						app.root.dismisser()
+
+				MDRectangleFlatButton:
+					text:'Submit'
+					text_color:0,0,0,1
+					on_release:root.updating() if root.ids.new_passwd.text!='' and 			root.ids.rep_new.text!='' and 										root.ids.rep_new.text==root.ids.new_passwd.text else 				print('Check your entries')
+				MDLabel:
+					size_hint_x:dp(.1)
